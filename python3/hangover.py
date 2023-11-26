@@ -1,11 +1,11 @@
 # !/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import random
 import os
 import subprocess
 from twilio.base.exceptions import TwilioRestException
 from twilio.rest import Client
+import secrets
 
 
 def get_dotenv():
@@ -70,7 +70,7 @@ def main():
         client.messages.create(
             to=number_of_boss,
             from_=my_number,
-            body='Gonna work from home. ' + random.choice(excuses),
+            body='Gonna work from home. ' + secrets.SystemRandom().choice(excuses),
         )
     except TwilioRestException as e:
         # Log errors.

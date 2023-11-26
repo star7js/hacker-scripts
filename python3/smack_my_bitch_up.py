@@ -2,11 +2,11 @@
 #!/usr/bin/env python
 
 import os
-import random
 from twilio.rest import Client  # Updated import for newer Twilio versions
 import subprocess
 import sys
 from time import strftime
+import secrets
 
 # Exit if no sessions with my username are found
 output = subprocess.check_output('who')
@@ -34,7 +34,7 @@ client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 client.messages.create(
     to=her_number,
     from_=my_number,
-    body="Late at work. " + random.choice(reasons)
+    body="Late at work. " + secrets.SystemRandom().choice(reasons)
 )
 
 # Print confirmation message

@@ -5,6 +5,7 @@ import pathlib
 import subprocess
 
 from dotenv import Dotenv
+from security import safe_command
 
 
 def get_dotenv(filename='.env'):
@@ -12,7 +13,7 @@ def get_dotenv(filename='.env'):
 
 
 def sh(*args):
-    proc = subprocess.Popen(args, stdout=subprocess.PIPE)
+    proc = safe_command.run(subprocess.Popen, args, stdout=subprocess.PIPE)
     stdout, _ = proc.communicate()
     return stdout
 

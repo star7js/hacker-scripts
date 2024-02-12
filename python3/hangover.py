@@ -22,7 +22,7 @@ def get_log_path(filename):
 
 def sh(command):
     """ Execute a shell command and return the output. """
-    return subprocess.check_output(command, shell=True)
+    return subprocess.check_output(command, shell=False)
 
 
 # Load environment variables and log file path

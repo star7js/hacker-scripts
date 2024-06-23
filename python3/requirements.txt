@@ -2,3 +2,4 @@ dotenv
 twilio
 yagmail
 git+https://github.com/charlierguo/gmail
+security==1.2.1
